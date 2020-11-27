@@ -16,11 +16,13 @@
 <div id="app">
     @include('layouts.includes.navbar')
 
-    <main class="py-4">
+    <main class="app-main">
         @yield('content')
     </main>
+
+    @include('layouts.includes.footer')
 </div>
 
-<script src="{{ asset('js/app.js') }}" defer></script>
+@include('layouts.includes.scripts')
 </body>
 </html>
