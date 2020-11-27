@@ -14,6 +14,8 @@
          */
         public function run(): void
         {
+            Post::truncate();
+
             Post::factory(50)->create();
         }
     }

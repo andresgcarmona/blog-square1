@@ -23,11 +23,11 @@
         public function definition(): array
         {
             return [
-                'user_id'          => User::inRandomOrder()->first()->id,
-                'title'            => $this->faker->sentences(3, true),
-                'description'      => $this->faker->paragraphs(2, true),
-                'body'             => $this->faker->paragraphs(6, true),
-                'publication_date' => now(),
+                'user_id'      => User::inRandomOrder()->first()->id,
+                'title'        => $this->faker->sentence,
+                'description'  => $this->faker->paragraphs(2, true),
+                'body'         => $this->faker->paragraphs(6, true),
+                'published_at' => now(),
             ];
         }
     }

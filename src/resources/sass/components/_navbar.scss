@@ -1,4 +1,7 @@
-.navbar {
-  &.navbar-dark {
+.app-header-light {
+  .top-bar-brand {
+    > a {
+      color: #333;
+    }
   }
 }

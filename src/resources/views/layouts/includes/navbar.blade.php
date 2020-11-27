@@ -1,8 +1,9 @@
-<header class="app-header app-header-dark">
+<header class="app-header app-header-light shadow-none bg-white">
     <div class="top-bar">
         <div class="top-bar-brand">
-            <a href="{{ route('index') }}" class="font-weight-bold font-size-lg">
-                {{ config('app.name') }}
+            <a href="{{ route('index') }}" class="font-weight-bold font-size-lg d-flex align-items-center">
+                <img src="/assets/images/logo/logo-sq1.jpg" alt="Logo"
+                    class="d-block mr-2"/> {{ config('app.name') }}
             </a>
         </div>
 
@@ -12,20 +13,14 @@
                     <span class="hamburger-box"><span class="hamburger-inner"></span></span>
                 </button>
             </div>
-            <div class="top-bar-item top-bar-item-full">
-                <form class="top-bar-search">
-                    <div class="input-group input-group-search dropdown">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><span class="fas fa-search"></span></span>
-                        </div>
-                        <input type="text"
-                               class="form-control"
-                               aria-label="{{ __('Search') }}"
-                               placeholder="{{ __('Search') }}">
-                    </div>
-                </form>
-            </div>
+
             <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+                <ul class="header-nav nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-search"></span></a>
+                    </li>
+                </ul>
+
                 <div class="dropdown d-none d-md-flex">
                     <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
