@@ -26,7 +26,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -49,7 +49,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -5552,7 +5552,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5654,7 +5654,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -17544,7 +17544,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   color: #5F4B8B;
 }
 .ql-editor .ql-font-serif {
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
 }
 .ql-editor .ql-font-monospace {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -17665,7 +17665,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   stroke: #888c9b;
 }
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
 }
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -17695,7 +17695,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 .ql-toolbar.ql-snow {
   border: 1px solid rgba(34, 34, 48, 0.1);
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
 }
 .ql-toolbar.ql-snow .ql-picker-options {
   border: 1px solid transparent;
@@ -23090,4 +23090,10 @@ a.metric:hover, a.metric:focus,
 }
 .message-publisher .input-group.focus {
   box-shadow: none;
+}
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Fira Sans", "Helvetica Neue", "Apple Color Emoji", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
 }

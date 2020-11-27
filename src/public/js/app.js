@@ -15,7 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_1___default.a;
-var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({}).$mount('#app');
+new vue__WEBPACK_IMPORTED_MODULE_1___default.a({}).$mount('#app');
 
 /***/ }),
 
