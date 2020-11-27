@@ -17,7 +17,7 @@
         protected $guarded = [];
 
         protected $dates = [
-            'publication_date',
+            'published_at',
             'deleted_at',
         ];
 

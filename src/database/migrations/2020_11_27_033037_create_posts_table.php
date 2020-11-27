@@ -20,7 +20,7 @@
                 $table->mediumText('title');
                 $table->mediumText('description');
                 $table->longText('body');
-                $table->timestamp('publication_date');
+                $table->timestamp('published_at');
                 $table->timestamps();
                 $table->softDeletes();
             });
