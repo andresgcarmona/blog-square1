@@ -27,8 +27,6 @@
 
                                     @can('edit', $post)
                                         <div class="my-4">
-                                            <a href="{{ route('post.edit', $post->slug) }}" class="btn btn-outline-primary mr-2">Edit</a>
-
                                             <label class="switcher-control switcher-control-lg">
                                                 <input type="checkbox"
                                                        class="switcher-input"
