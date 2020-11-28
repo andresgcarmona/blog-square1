@@ -1,7 +1,7 @@
 <article class="d-flex flex-column w-100 post post-preview pb-2 mb-4 border-bottom">
     <header>
         <h1 class="mb-1">
-            <a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
+            <a href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a>
         </h1>
         <div class="d-flex align-items-center">
             <div class="user-avatar user-avatar-md mr-2">

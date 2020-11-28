@@ -2,7 +2,7 @@
 
     namespace App\Http\Controllers;
 
-    class HomeController extends Controller
+    class ProfileController extends Controller
     {
         /**
          * Create a new controller instance.
@@ -14,13 +14,12 @@
             $this->middleware('auth');
         }
 
-        /**
-         * Show the application dashboard.
-         *
-         * @return \Illuminate\Contracts\Support\Renderable
-         */
-        public function index()
+        public function __invoke()
         {
-            return view('home');
+            $user = auth()->user();
+
+            return view('users.dashboard', compact(
+                'user'
+            ));
         }
     }

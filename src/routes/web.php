@@ -12,4 +12,4 @@
 
     Auth::routes();
 
-    Route::get('/profile', ProfileController::class)->name('dashboard');
+    Route::get('/dashboard', ProfileController::class)->name('dashboard');

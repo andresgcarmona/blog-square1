@@ -13,7 +13,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<div class="app">
     @include('layouts.includes.navbar')
     @include('layouts.includes.alerts')
 
