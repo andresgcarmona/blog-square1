@@ -7,18 +7,7 @@
           
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                <tr>
-                  <th>Title</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="post in posts">
-                  <td>{{ post.title }}</td>
-                </tr>
-                </tbody>
-              </table>
+              <posts-table></posts-table>
             </div>
           </div>
         </div>
@@ -28,12 +17,11 @@
 </template>
 
 <script>
+  import PostsTable from '../components/PostsTable'
   export default {
     name: 'Dashboard',
-    data() {
-      return {
-        posts: [],
-      }
+    components: {
+      PostsTable,
     },
   }
 </script>
