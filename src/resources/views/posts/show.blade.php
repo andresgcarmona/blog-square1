@@ -33,7 +33,7 @@
                                                        class="switcher-input"
                                                        id="publish"
                                                        name="publish"
-                                                       checked>
+                                                       {{ $post->is_published ? 'checked' : '' }}>
                                                 <span class="switcher-indicator"></span>
                                             </label>
                                             <label for="publish">Publish</label>

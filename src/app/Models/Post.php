@@ -21,6 +21,10 @@
             'deleted_at',
         ];
 
+        protected $casts = [
+            'is_published' => 'boolean',
+        ];
+
         /**
          * Returns the user who created the post.
          *
@@ -57,7 +61,7 @@
          *
          * @return bool
          */
-        public function isPublishedAttribute(): bool
+        public function getIsPublishedAttribute(): bool
         {
             return $this->attributes['published_at'] !== null;
         }
