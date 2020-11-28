@@ -26,7 +26,7 @@
                 'user_id'      => User::inRandomOrder()->first()->id,
                 'title'        => $this->faker->sentence,
                 'description'  => $this->faker->paragraphs(2, true),
-                'body'         => $this->faker->paragraphs(6, true),
+                'body'         => $this->faker->paragraphs(16, true),
                 'published_at' => now(),
             ];
         }

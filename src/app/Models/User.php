@@ -39,5 +39,14 @@
          */
         protected $casts = [
             'email_verified_at' => 'datetime',
+            'is_admin'          => 'boolean',
         ];
+
+        /**
+         * @return bool
+         */
+        public function getIsAdminAttribute(): bool
+        {
+            return false;
+        }
     }
