@@ -21,6 +21,7 @@
                     </li>
                 </ul>
 
+                @auth
                 <div class="dropdown d-none d-md-flex">
                     <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -37,14 +38,20 @@
                         <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                         <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
                         <h6 class="dropdown-header d-none d-md-block d-lg-none"> Andres Carmona </h6>
-                        <a class="dropdown-item" href="user-profile.html">
+                        <a class="dropdown-item" href="#">
                             <span class="dropdown-icon oi oi-person"></span> Profile
                         </a>
-                        <a class="dropdown-item" href="auth-signin-v1.html">
+                        <a class="dropdown-item" href="#">
                             <span class="dropdown-icon oi oi-account-logout"></span> Logout
                         </a>
                     </div>
                 </div>
+                @else
+                <div class="d-flex align-items-center pr-4 py-2">
+                    <a href="{{ route('login') }}" class="btn btn-link border-right">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-link">Register</a>
+                </div>
+                @endauth
             </div>
         </div>
     </div>

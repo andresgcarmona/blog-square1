@@ -40,4 +40,25 @@
         {
             return $this->user();
         }
+
+        /**
+         * Scope for published posts.
+         *
+         * @param $query
+         * @return mixed
+         */
+        public function scopePublished($query)
+        {
+            return $query->whereNotNull('published_at');
+        }
+
+        /**
+         * Returns true if the post is published.
+         *
+         * @return bool
+         */
+        public function isPublishedAttribute(): bool
+        {
+            return $this->attributes['published_at'] !== null;
+        }
     }

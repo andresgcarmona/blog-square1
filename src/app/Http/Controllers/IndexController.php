@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Models\Post;
     use Illuminate\Contracts\Foundation\Application;
     use Illuminate\Contracts\View\Factory;
     use Illuminate\Contracts\View\View;
@@ -18,6 +19,12 @@
          */
         public function __invoke(Request $request)
         {
-            return view('index');
+            $posts = Post::with('author')
+                         ->published()
+                         ->paginate();
+
+            return view('index', compact(
+                'posts'
+            ));
         }
     }
