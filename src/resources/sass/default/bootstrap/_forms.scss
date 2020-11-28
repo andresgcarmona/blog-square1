@@ -31,7 +31,7 @@ label {
 @include media-breakpoint-up(md) {
   .form-control {
     height: $input-height-mq;
-    font-size: $font-size-sm;
+    font-size: $font-size-base;
 
     &.form-control-sm {
       height: $input-height-mq-sm;
@@ -62,7 +62,7 @@ label {
   .valid-feedback,
   .invalid-feedback {
     @include media-breakpoint-up(md) {
-      font-size: 85%;
+      font-size: 100%;
     }
   }
 }

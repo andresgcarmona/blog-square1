@@ -15,6 +15,7 @@
 <body>
 <div id="app">
     @include('layouts.includes.navbar')
+    @include('layouts.includes.alerts')
 
     <main class="app-main">
         @yield('content')
