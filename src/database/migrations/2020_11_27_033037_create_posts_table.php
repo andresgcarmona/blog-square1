@@ -18,6 +18,7 @@
                 $table->id();
                 $table->foreignId('user_id')->constrained('users');
                 $table->mediumText('title');
+                $table->text('slug')->nullable();
                 $table->mediumText('description');
                 $table->longText('body');
                 $table->timestamp('published_at');

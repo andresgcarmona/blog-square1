@@ -22414,6 +22414,9 @@ body {
   line-height: 1.5;
   background-color: #fff !important;
 }
+.app-main {
+  padding-top: 2rem;
+}
 .app-header-light .top-bar-brand > a {
   color: #333;
 }
@@ -22449,5 +22452,8 @@ body {
 }
 .post-preview .description,
 .post .description {
+  font-size: 1.1rem;
+}
+.post .body {
   font-size: 1.1rem;
 }

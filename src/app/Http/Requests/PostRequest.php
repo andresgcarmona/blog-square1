@@ -3,6 +3,7 @@
     namespace App\Http\Requests;
 
     use Illuminate\Foundation\Http\FormRequest;
+    use Illuminate\Support\Str;
     use Illuminate\Validation\ValidationException;
 
     class PostRequest extends FormRequest
@@ -44,6 +45,9 @@
                 $data['published_at'] = now();
                 unset($data['publish']);
             }
+
+            // Set slug.
+            $data['slug'] = Str::slug($data['title']);
 
             return $data;
         }

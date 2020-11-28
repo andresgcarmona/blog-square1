@@ -8,7 +8,7 @@
     use Illuminate\Support\Facades\Route;
 
     Route::get('/', IndexController::class)->name('index');
-    Route::get('/post/{post}', ShowPostController::class)->name('post.show');
+    Route::get('/post/{post:slug}', ShowPostController::class)->name('post.show');
     Route::get('/post/{post}/edit', EditPostController::class)->name('post.edit');
     Route::post('/post', CreatePostController::class)->name('post.create');
     Route::put('/post/{post}', UpdatePostController::class)->name('post.update');
