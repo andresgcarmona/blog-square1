@@ -6,9 +6,7 @@
             <div class="page-inner">
                 <div class="page-section">
                     <div class="section-block">
-                        <div class="container">
-                            <router-view></router-view>
-                        </div>
+                        <router-view></router-view>
                     </div>
                 </div>
             </div>

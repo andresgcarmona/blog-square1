@@ -20,9 +20,9 @@
       <tr v-for="post in posts" v-else
           :key="post.id">
         <td class="text-center">{{ post.id }}</td>
-        <td>{{ post.title }}</td>
-        <td>{{ post.published_at }}</td>
-        <td>
+        <td><a :href="`/post/${post.slug}`">{{ post.title }}</a></td>
+        <td class="text-center">{{ post.published_at }}</td>
+        <td class="text-center">
           <label class="switcher-control switcher-control-lg">
             <input type="checkbox"
                    class="switcher-input"

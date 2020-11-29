@@ -21,7 +21,7 @@
                                                      alt="User avatar"/>
                                             </div>
                                             <span class="text-muted text-sm d-inline-block mr-3">{{ $post->author->name }}</span>
-                                            <span class="text-muted">{{ $post->published_at->diffForHumans()  }}</span>
+                                            <span class="text-muted">{{ $post->published_at ? $post->published_at->diffForHumans() : 'Not published yet'  }}</span>
                                         </div>
                                     </header>
 

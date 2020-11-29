@@ -17,10 +17,11 @@
             return [
                 'id'           => $this->id,
                 'title'        => $this->title,
+                'slug'         => $this->slug,
                 'description'  => $this->description,
                 'body'         => $this->body,
-                'created_at'   => $this->created_at->format('m/d/Y H:i:s'),
-                'updated_at'   => $this->updated_at->format('m/d/Y H:i:s'),
+                'created_at'   => $this->created_at,
+                'updated_at'   => $this->updated_at,
                 'published_at' => $this->published_at ? $this->published_at->format('m/d/Y H:i:s') : '',
                 'is_published' => (bool) $this->is_published,
             ];

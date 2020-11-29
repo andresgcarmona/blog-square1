@@ -1,14 +1,12 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">My posts</div>
-          
-          <div class="card-body">
-            <div class="table-responsive">
-              <posts-table></posts-table>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <div class="card">
+        <div class="card-header">My posts</div>
+        
+        <div class="card-body">
+          <div class="table-responsive">
+            <posts-table></posts-table>
           </div>
         </div>
       </div>

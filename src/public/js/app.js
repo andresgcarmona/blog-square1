@@ -181,8 +181,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
@@ -223,11 +221,17 @@ var render = function() {
                     _vm._v(_vm._s(post.id))
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(post.title))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(post.published_at))]),
-                  _vm._v(" "),
                   _c("td", [
+                    _c("a", { attrs: { href: "/post/" + post.slug } }, [
+                      _vm._v(_vm._s(post.title))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
+                    _vm._v(_vm._s(post.published_at))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-center" }, [
                     _c(
                       "label",
                       { staticClass: "switcher-control switcher-control-lg" },
@@ -350,20 +354,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("My posts")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "table-responsive" },
-              [_c("posts-table")],
-              1
-            )
-          ])
+  return _c("div", { staticClass: "row justify-content-center" }, [
+    _c("div", { staticClass: "col-md-10 col-lg-8" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("My posts")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "table-responsive" }, [_c("posts-table")], 1)
         ])
       ])
     ])
