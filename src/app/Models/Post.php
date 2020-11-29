@@ -25,6 +25,10 @@
             'is_published' => 'boolean',
         ];
 
+        protected $appends = [
+            'is_published',
+        ];
+
         /**
          * Returns the user who created the post.
          *

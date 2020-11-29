@@ -62,6 +62,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostsTable',
@@ -77,7 +95,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var page;
+        var page, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -90,9 +108,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 });
 
               case 4:
+                response = _context.sent;
                 _this.loading = false;
+                _this.links = response.data.links;
 
-              case 5:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -194,21 +214,47 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.posts, function(post) {
-          return _c("tr", { key: post.id }, [
-            _c("td", [_vm._v(_vm._s(post.title))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(post.published_at))]),
-            _vm._v(" "),
-            _c("td")
-          ])
-        }),
-        0
+        [
+          _vm.loading
+            ? _c("tr", [_vm._m(1)])
+            : _vm._l(_vm.posts, function(post) {
+                return _c("tr", { key: post.id }, [
+                  _c("td", { staticClass: "text-center" }, [
+                    _vm._v(_vm._s(post.id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(post.title))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(post.published_at))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "label",
+                      { staticClass: "switcher-control switcher-control-lg" },
+                      [
+                        _c("input", {
+                          staticClass: "switcher-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "publish",
+                            name: "publish"
+                          },
+                          domProps: { checked: post.is_published }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "switcher-indicator" })
+                      ]
+                    )
+                  ])
+                ])
+              })
+        ],
+        2
       )
     ]),
     _vm._v(" "),
     _vm.links.length
-      ? _c("div", [
+      ? _c("div", { staticClass: "d-flex justify-content-center" }, [
           _c("nav", [
             _c(
               "ul",
@@ -260,12 +306,26 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Title")]),
         _vm._v(" "),
         _c("th", [_vm._v("Publication date")]),
         _vm._v(" "),
         _c("th", [_vm._v("Publish")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center", attrs: { colspan: "4" } }, [
+      _c(
+        "div",
+        { staticClass: "spinner-border text-black", attrs: { role: "status" } },
+        [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+      )
     ])
   }
 ]

@@ -3,8 +3,8 @@
     namespace App\Http\Controllers\Api;
 
     use App\Http\Controllers\Controller;
+    use App\Http\Resources\PostsResourceCollection;
     use App\Models\Post;
-    use Illuminate\Contracts\Pagination\LengthAwarePaginator;
     use Illuminate\Http\Request;
 
     class ListPostsController extends Controller
@@ -13,10 +13,16 @@
          * Handle the incoming request.
          *
          * @param  Request  $request
-         * @return LengthAwarePaginator
+         * @return PostsResourceCollection
          */
         public function __invoke(Request $request)
         {
-            return Post::with('author')->paginate();
+            $user = auth('api')->user();
+
+            $posts = Post::with('author')
+//                       ->where('user_id', $user->id)
+                         ->paginate();
+
+            return new PostsResourceCollection($posts);
         }
     }

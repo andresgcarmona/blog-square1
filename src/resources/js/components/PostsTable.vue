@@ -3,22 +3,40 @@
     <table class="table table-bordered">
       <thead>
       <tr>
+        <th>Id</th>
         <th>Title</th>
         <th>Publication date</th>
         <th>Publish</th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="post in posts"
+      <tr v-if="loading">
+        <td class="text-center" colspan="4">
+          <div class="spinner-border text-black" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </td>
+      </tr>
+      <tr v-for="post in posts" v-else
           :key="post.id">
+        <td class="text-center">{{ post.id }}</td>
         <td>{{ post.title }}</td>
         <td>{{ post.published_at }}</td>
-        <td></td>
+        <td>
+          <label class="switcher-control switcher-control-lg">
+            <input type="checkbox"
+                   class="switcher-input"
+                   id="publish"
+                   name="publish"
+                   :checked="post.is_published">
+            <span class="switcher-indicator"></span>
+          </label>
+        </td>
       </tr>
       </tbody>
     </table>
   
-    <div v-if="links.length">
+    <div v-if="links.length" class="d-flex justify-content-center">
       <nav>
         <ul class="pagination">
           <li v-for="(link, index) in links"
@@ -54,11 +72,13 @@
         
         this.loading = true
         
-        await this.getPosts({
+        const response = await this.getPosts({
           page,
         })
         
         this.loading = false
+        
+        this.links = response.data.links
       }
     },
     computed: {

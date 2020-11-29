@@ -21,7 +21,7 @@
                 $table->text('slug')->nullable();
                 $table->mediumText('description');
                 $table->longText('body');
-                $table->timestamp('published_at');
+                $table->timestamp('published_at')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
             });
