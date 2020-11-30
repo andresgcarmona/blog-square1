@@ -30,7 +30,6 @@
                 'title'        => $title,
                 'slug'         => Str::slug($title),
                 'description'  => $this->faker->paragraphs(2, true),
-                'body'         => $this->faker->paragraphs(16, true),
                 'published_at' => now(),
             ];
         }
