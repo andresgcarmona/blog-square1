@@ -13,5 +13,7 @@ In order to run the application, you need **Docker** and **Docker compose** inst
  9. Run **docker-compose run --rm artisan migrate --seed**
 
 Once all the previous commands are run, you can open the application at http://localhost:8080 in your browser.
+
+Admin user is: **admin@square1.io**, password: **password**.
  
-Run **docker-compose run --rm artisan schedule:run** to activate the laravel scheduler and start fetching post from the API. The scheduler was set to run every hour, but in order to test it I have reduced the interval to everyminute.
+Run **docker-compose run --rm artisan schedule:work** to activate the laravel scheduler and start fetching post from the API. The scheduler was set to run every hour, but in order to test it I have reduced the interval to everyminute.
