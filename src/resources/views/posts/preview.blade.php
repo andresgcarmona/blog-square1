@@ -8,7 +8,7 @@
                 <img src="/assets/images/avatars/uifaces{{ random_int(1, 22) }}.jpg" alt="User avatar" />
             </div>
             <span class="text-muted text-sm d-inline-block mr-3">{{ $post->author->name }}</span>
-            <span class="text-muted">{{ $post->published_at->diffForHumans()  }}</span>
+            <span class="text-muted">Published: {{ $post->published_at->diffForHumans()  }}</span>
         </div>
     </header>
     <div class="mt-4">
