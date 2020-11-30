@@ -24,7 +24,7 @@
          */
         protected function schedule(Schedule $schedule)
         {
-             $schedule->command('posts:fetch')->hourly();
+             $schedule->command('posts:fetch')->everyMinute(); // hourly();
         }
 
         /**
