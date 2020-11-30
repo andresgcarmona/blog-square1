@@ -7,8 +7,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.sass('resources/sass/app.scss', 'public/css')
 
-mix.copy('node_modules/izitoast/dist/css/iziToast.min.css', 'public/assets/vendor/izitoast')
-
+mix.copy('node_modules/izitoast/dist/css/iziToast.min.css', 'public/assets/vendor/izitoast')in
 mix.webpackConfig(require('./webpack.config'))
 
 if(mix.inProduction()) {

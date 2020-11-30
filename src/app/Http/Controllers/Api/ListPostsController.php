@@ -17,12 +17,19 @@
          */
         public function __invoke(Request $request)
         {
+            // Get user.
             $user = auth('api')->user();
 
-            $posts = Post::with('author')
-//                       ->where('user_id', $user->id)
-                         ->paginate();
+            // Get sort
+            $sort = $request->get('sortedBy');
 
-            return new PostsResourceCollection($posts);
+            $posts = Post::with('author');
+//                       ->where('user_id', $user->id)
+
+            foreach(json_decode($sort, true, 512, JSON_THROW_ON_ERROR) as $field => $order) {
+                $posts->orderBy($field, $order ? 'asc' : 'desc');
+            }
+
+            return new PostsResourceCollection($posts->paginate());
         }
     }

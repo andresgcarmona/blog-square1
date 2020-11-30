@@ -5,7 +5,10 @@
       <tr>
         <th>Id</th>
         <th>Title</th>
-        <th>Publication date</th>
+        <th class="sortable text-center cursor-pointer user-select-none" @click="sortBy('published_at')">
+          <i class="fas d-inline-block mr-2"
+          :class="{ 'fa-angle-down': sortedBy['published_at'], 'fa-angle-up': !sortedBy['published_at'] }"></i> Publication date
+        </th>
         <th>Publish</th>
       </tr>
       </thead>
@@ -55,39 +58,55 @@
       loading: false,
       page: 1,
       links: [],
+      sortedBy: {
+        published_at: true,
+      },
     }),
     methods: {
       ...mapActions(['getPosts']),
       
-      async goToPage(url) {
-        const page = parseInt(url.split('?')[1].match(/page=([0-9]+)/)[1])
+      async sortBy(field) {
+        this.sortedBy[field] = !this.sortedBy[field]
+        
+        await this.load()
+      },
+      async load() {
+        const { page, sortedBy } = this
         
         this.loading = true
-        
+  
         const response = await this.getPosts({
           page,
+          sortedBy,
         })
-        
+  
         this.loading = false
+  
+        this.links = response.data.meta ? response.data.meta.links : response.data.links
+      },
+      async goToPage(url) {
+        this.page = parseInt(url.split('?')[1].match(/page=([0-9]+)/)[1])
         
-        this.links = response.data.links
+        await this.load()
       },
     },
     computed: {
       ...mapGetters(['posts']),
     },
     async mounted() {
-      const { page } = this
-      
-      this.loading = true
-      
-      const response = await this.getPosts({
-        page,
-      })
-      
-      this.loading = false
-      
-      this.links = response.data.links
+      await this.load()
     },
   }
 </script>
+
+<style scoped lang="scss">
+  table {
+    thead {
+      th {
+        &.sortable {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+</style>

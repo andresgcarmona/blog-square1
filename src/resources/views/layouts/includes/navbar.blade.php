@@ -29,7 +29,7 @@
                             <img src="/assets/images/avatars/profile.jpg" alt="">
                         </span>
                         <span class="account-summary pr-lg-4 d-none d-lg-block">
-                            <span class="account-name">Andres Carmona</span>
+                            <span class="account-name">{{ auth()->user()->name }}</span>
                             <span class="account-description"></span>
                         </span>
                     </button>
@@ -37,9 +37,9 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-arrow d-lg-none" x-arrow=""></div>
                         <div class="dropdown-arrow ml-3 d-none d-lg-block"></div>
-                        <h6 class="dropdown-header d-none d-md-block d-lg-none"> Andres Carmona </h6>
+                        <h6 class="dropdown-header d-none d-md-block d-lg-none"> {{ auth()->user()->name }} </h6>
                         <a class="dropdown-item" href="{{ route('dashboard') }}">
-                            <span class="dropdown-icon oi oi-person"></span> Profile
+                            <span class="dropdown-icon oi oi-person"></span> Dashboard
                         </a>
                         <a class="dropdown-item" href="#">
                             <span class="dropdown-icon oi oi-account-logout"></span> Logout

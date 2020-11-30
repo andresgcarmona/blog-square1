@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const fetchPosts = async ({ page }) => {
+const fetchPosts = async ({ page, sortedBy }) => {
 	try {
 		return await axios.get('/posts', {
 			params: {
 				page,
+				sortedBy,
 			},
 		})
 	}
