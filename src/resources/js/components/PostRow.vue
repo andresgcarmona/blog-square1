@@ -20,6 +20,7 @@
 
 <script>
   import { mapActions } from 'vuex'
+  import toast from 'izitoast'
   
   export default {
     name: 'PostRow',
@@ -37,9 +38,23 @@
       async togglePublish(post) {
         this.updating = true
     
-        await this.togglePublishPost(post)
+        const response = await this.togglePublishPost(post)
     
         this.updating = false
+        
+        toast.show({
+          title: '',
+          message: response.data.message,
+          icon: 'far fa-check-circle',
+          displayMode: 'replace',
+          position: 'bottomCenter',
+          image: null,
+          balloon: false,
+          progressBar: false,
+          timeout: 2200,
+          layout: 2,
+          theme: 'dark',
+        })
       },
     }
   }

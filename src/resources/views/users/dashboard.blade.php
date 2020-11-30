@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    <link href="{{ asset('assets/vendor/izitoast/iziToast.min.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
     <div class="wrapper">
         <div class="page">

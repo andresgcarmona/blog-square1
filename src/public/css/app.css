@@ -26060,3 +26060,13 @@ body {
   font-size: 1.1rem;
 }
 
+.iziToast > .iziToast-body .iziToast-title {
+  font-size: 1.1rem !important;
+  margin-bottom: 6px;
+}
+
+.iziToast > .iziToast-body .iziToast-message {
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+}
+
