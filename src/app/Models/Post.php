@@ -14,7 +14,13 @@
 
         protected $table = 'posts';
 
-        protected $guarded = [];
+        protected $fillable = [
+            'user_id',
+            'title',
+            'slug',
+            'description',
+            'published_at',
+        ];
 
         protected $dates = [
             'published_at',
