@@ -8,7 +8,7 @@
                     <div class="section-block">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-10 col-lg-8">
+                                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                                     @foreach($posts as $post)
                                         @include('posts.preview')
                                     @endforeach
