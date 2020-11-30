@@ -33,7 +33,7 @@
             @endcan
 
             <div class="body" v-pre>
-                {{ $post->description }}
+                {{ nl2br($post->description) }}
             </div>
         </div>
     </div>
