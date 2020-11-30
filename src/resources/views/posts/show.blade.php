@@ -2,49 +2,19 @@
 
 @section('title', $post->title)
 
+@push('styles')
+    @livewireStyles
+    <link href="{{ asset('assets/vendor/izitoast/iziToast.min.css') }}" rel="stylesheet" />
+@endpush
+
 @section('content')
     <div class="wrapper">
         <div class="page">
             <div class="page-inner">
                 <div class="page-section">
                     <div class="section-block">
-                        <article class="container post">
-                            <div class="row">
-                                <div class="col-md-8 offset-md-2">
-                                    <header class="mb-4">
-                                        <h1 class="mb-1">
-                                            <a href="#">{{ $post->title }}</a>
-                                        </h1>
-                                        <div class="d-flex align-items-center">
-                                            <div class="user-avatar user-avatar-md mr-2">
-                                                <img src="/assets/images/avatars/uifaces{{ random_int(1, 22) }}.jpg"
-                                                     alt="User avatar"/>
-                                            </div>
-                                            <span class="text-muted text-sm d-inline-block mr-3">{{ $post->author->name }}</span>
-                                            <span class="text-muted">{{ $post->published_at ? $post->published_at->diffForHumans() : 'Not published yet'  }}</span>
-                                        </div>
-                                    </header>
-
-                                    @can('edit', $post)
-                                        <div class="my-4">
-                                            <label class="switcher-control switcher-control-lg">
-                                                <input type="checkbox"
-                                                       class="switcher-input"
-                                                       id="publish"
-                                                       name="publish"
-                                                       {{ $post->is_published ? 'checked' : '' }}>
-                                                <span class="switcher-indicator"></span>
-                                            </label>
-                                            <label for="publish">Publish</label>
-                                        </div>
-                                    @endcan
-
-                                    <div class="body" v-pre>
-                                        {{ $post->description }}
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        <livewire:show-post :post="$post"></livewire:show-post>
+                        <router-view></router-view>
                     </div>
                 </div>
             </div>
@@ -57,3 +27,7 @@
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="/assets/javascript/theme.min.js"></script>
 @endsection
+
+@push('styles')
+    @livewireScripts
+@endpush

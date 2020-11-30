@@ -29,7 +29,7 @@
                 DB::commit();
 
                 return response()->json([
-                    'message' => __('Post '.($post->is_published ? 'published' : 'unpublished').' successfully.',),
+                    'message' => __('Post '.($post->is_published ? 'published' : 'unpublished').' successfully.'),
                     'post'    => new PostResource($post->fresh()),
                 ]);
             } catch (Exception $exception) {

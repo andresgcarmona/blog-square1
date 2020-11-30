@@ -910,6 +910,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Dashboard */ "./resources/js/pages/Dashboard.vue");
+/* harmony import */ var izitoast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! izitoast */ "./node_modules/izitoast/dist/js/iziToast.js");
+/* harmony import */ var izitoast__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(izitoast__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -917,10 +920,37 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
+    path: '/post/:post',
+    name: 'post.show',
+    component: {
+      render: function render() {},
+      mounted: function mounted() {
+        window.livewire.on('togglePublished', function (message) {
+          izitoast__WEBPACK_IMPORTED_MODULE_3___default.a.show({
+            title: '',
+            message: message,
+            icon: 'far fa-check-circle',
+            displayMode: 'replace',
+            position: 'bottomCenter',
+            image: null,
+            balloon: false,
+            progressBar: false,
+            timeout: 2200,
+            layout: 2,
+            theme: 'dark'
+          });
+        });
+      }
+    }
+  }, {
     path: '/dashboard',
     name: 'dashboard',
     component: _pages_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
   }]
+});
+router.beforeEach(function (to, from, next) {
+  console.log(to, from);
+  next();
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
 

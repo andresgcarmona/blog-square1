@@ -24,4 +24,9 @@
         {
             return $user->id === $post->user->id || $user->is_admin;
         }
+
+        public function publish(User $user, Post $post)
+        {
+            return $user->id === $post->user->id || $user->is_admin;
+        }
     }
