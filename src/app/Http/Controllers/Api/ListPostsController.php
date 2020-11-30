@@ -23,10 +23,10 @@
             // Get sort
             $sort = $request->get('sortedBy');
 
-            $posts = Post::with('author');
-//                       ->where('user_id', $user->id)
+            $posts = Post::with('author')
+                         ->where('user_id', $user->id);
 
-            foreach(json_decode($sort, true, 512, JSON_THROW_ON_ERROR) as $field => $order) {
+            foreach (json_decode($sort, true, 512, JSON_THROW_ON_ERROR) as $field => $order) {
                 $posts->orderBy($field, $order ? 'asc' : 'desc');
             }
 

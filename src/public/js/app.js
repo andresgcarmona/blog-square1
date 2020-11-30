@@ -613,6 +613,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -620,7 +628,14 @@ __webpack_require__.r(__webpack_exports__);
 window.Vue = vue__WEBPACK_IMPORTED_MODULE_1___default.a;
 new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   router: _router__WEBPACK_IMPORTED_MODULE_2__["default"],
-  store: _store__WEBPACK_IMPORTED_MODULE_3__["default"]
+  store: _store__WEBPACK_IMPORTED_MODULE_3__["default"],
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapMutations"])(['SET_TOKEN'])),
+  mounted: function mounted() {
+    if (window.token) {
+      this['SET_TOKEN'](window.token);
+      delete window.token;
+    }
+  }
 }).$mount('.app');
 
 /***/ }),
@@ -650,6 +665,10 @@ window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_1___default.a;
 window.axios = axios__WEBPACK_IMPORTED_MODULE_3___default.a;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.baseURL = '/api/';
+
+if (window.token) {
+  window.axios.defaults.headers.common['Authorization'] = "Bearer ".concat(window.token);
+}
 
 /***/ }),
 
@@ -1013,15 +1032,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "togglePublishStatus", function() { return togglePublishStatus; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
 
 var fetchPosts = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
@@ -1033,7 +1048,7 @@ var fetchPosts = /*#__PURE__*/function () {
             page = _ref.page, sortedBy = _ref.sortedBy;
             _context.prev = 1;
             _context.next = 4;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/posts', {
+            return axios.get('/posts', {
               params: {
                 page: page,
                 sortedBy: sortedBy
@@ -1069,7 +1084,7 @@ var togglePublishStatus = /*#__PURE__*/function () {
           case 0:
             _context2.prev = 0;
             _context2.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/post/".concat(post.id, "/toggle-publish-status"));
+            return axios.post("/post/".concat(post.id, "/toggle-publish-status"));
 
           case 3:
             return _context2.abrupt("return", _context2.sent);
@@ -1137,7 +1152,8 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var state = {
-  posts: []
+  posts: [],
+  token: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: state,
@@ -1161,8 +1177,13 @@ var SET_POSTS = function SET_POSTS(state, posts) {
   state.posts = posts;
 };
 
+var SET_TOKEN = function SET_TOKEN(state, token) {
+  state.token = token;
+};
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  SET_POSTS: SET_POSTS
+  SET_POSTS: SET_POSTS,
+  SET_TOKEN: SET_TOKEN
 });
 
 /***/ }),

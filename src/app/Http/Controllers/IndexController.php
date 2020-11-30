@@ -8,6 +8,7 @@
     use Illuminate\Contracts\View\View;
     use Illuminate\Http\Request;
     use Illuminate\Http\Response;
+    use JavaScript;
 
     class IndexController extends Controller
     {
@@ -23,6 +24,10 @@
                          ->published()
                          ->orderBy('published_at', 'desc')
                          ->paginate();
+
+            $token = $request->cookie('api_token');
+
+            JavaScript::put(compact('token'));
 
             return view('index', compact(
                 'posts'

@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 const state = {
 	posts: [],
+	token: null,
 }
 
 export default new Vuex.Store({

@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 const fetchPosts = async ({ page, sortedBy }) => {
 	try {
 		return await axios.get('/posts', {
