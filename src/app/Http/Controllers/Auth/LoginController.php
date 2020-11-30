@@ -41,7 +41,7 @@
 
         protected function authenticated(Request $request, $user)
         {
-            // Remove all other tokens.
+            // Remove all previous tokens.
             $user->tokens()->delete();
 
             // Create new token.
