@@ -21,6 +21,7 @@
         {
             $posts = Post::with('author')
                          ->published()
+                         ->orderBy('published_at', 'desc')
                          ->paginate();
 
             return view('index', compact(

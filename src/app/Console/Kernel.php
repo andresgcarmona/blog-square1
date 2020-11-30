@@ -24,7 +24,7 @@
          */
         protected function schedule(Schedule $schedule)
         {
-            // $schedule->command('inspire')->hourly();
+             $schedule->command('posts:fetch')->hourly();
         }
 
         /**
