@@ -1,5 +1,6 @@
 <?php
 
+    use App\Http\Controllers\Auth\LoginController;
     use App\Http\Controllers\CreatePostController;
     use App\Http\Controllers\IndexController;
     use App\Http\Controllers\ProfileController;
@@ -12,4 +13,5 @@
 
     Auth::routes();
 
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/dashboard', ProfileController::class)->name('dashboard');
