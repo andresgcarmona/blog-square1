@@ -30,21 +30,6 @@
 </div>
 
 <div class="form-group mb-4">
-    <label for="body"
-           class="d-block font-weight-bold">Content: </label>
-    <textarea name="body"
-              id="body"
-              placeholder="The post's content goes here"
-              rows="15"
-              cols="5"
-              required
-              class="form-control {{ $errors->has('body') ? 'border-danger' : '' }}">{{ old('body', $post->body) }}</textarea>
-    @error('body')
-    <p class="text-danger font-weight-bold mt-1">{{ $message }}</p>
-    @enderror
-</div>
-
-<div class="form-group mb-4">
     <label class="switcher-control switcher-control-lg">
         <input type="checkbox"
                class="switcher-input"

@@ -33,7 +33,8 @@
                 DB::rollBack();
 
                 return redirect()->back()
-                                 ->withErrors(['error' => __('Something went wrong, please try again.')]);
+                                 ->withInput()
+                                 ->withErrors(['error' => __('Something went wrong, please try again.'.$exception->getMessage())]);
             }
         }
     }

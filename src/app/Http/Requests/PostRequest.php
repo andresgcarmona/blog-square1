@@ -28,7 +28,6 @@
             return [
                 'title'       => 'required',
                 'description' => 'required',
-                'body'        => 'required',
                 'publish'     => 'sometimes',
             ];
         }
@@ -45,6 +44,9 @@
                 $data['published_at'] = now();
                 unset($data['publish']);
             }
+
+            // Set user.
+            $data['user_id'] = auth()->user()->id;
 
             // Set slug.
             $data['slug'] = Str::slug($data['title']);

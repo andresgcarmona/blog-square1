@@ -315,6 +315,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Dashboard',
@@ -586,13 +590,31 @@ var render = function() {
         _c("div", { staticClass: "card-header" }, [_vm._v("My posts")]),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
+          _vm._m(0),
+          _vm._v(" "),
           _c("div", { staticClass: "table-responsive" }, [_c("posts-table")], 1)
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-4" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-outline-primary",
+          attrs: { href: "/post/create" }
+        },
+        [_vm._v("Create post")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

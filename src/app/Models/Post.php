@@ -73,6 +73,6 @@
          */
         public function getIsPublishedAttribute(): bool
         {
-            return $this->attributes['published_at'] !== null;
+            return isset($this->attributes['published_at']) ? $this->attributes['published_at'] !== null : false;
         }
     }

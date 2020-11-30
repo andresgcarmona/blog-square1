@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit post: '.$post->title)
+@section('title', 'Register post')
 
 @section('content')
     <div class="wrapper">
@@ -11,11 +11,10 @@
                         <article class="container post">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2">
-                                    <form method="POST" action="{{ route('post.update', $post) }}"
+                                    <form method="POST" action="{{ route('post.create') }}"
                                           class="form"
                                           id="edit-form"
                                           onsubmit="return true">
-                                        @method('put')
                                         @csrf
                                     @include('posts.forms.post')
                                     </form>
