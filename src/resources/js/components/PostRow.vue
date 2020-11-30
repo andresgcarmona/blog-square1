@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td class="text-center d-none d-md-inline">{{ post.id }}</td>
+    <td class="text-center id">{{ post.id }}</td>
     <td><a :href="`/post/${post.slug}`">{{ post.title }}</a></td>
     <td class="text-center">{{ post.published_at }}</td>
-    <td class="text-center d-none d-md-inline">
+    <td class="text-center publish">
       <label class="switcher-control switcher-control-lg">
         <input type="checkbox"
                class="switcher-input"
@@ -34,12 +34,12 @@
       ...mapActions({
         togglePublishPost: 'togglePublish',
       }),
-  
+      
       async togglePublish(post) {
         this.updating = true
-    
+        
         const response = await this.togglePublishPost(post)
-    
+        
         this.updating = false
         
         toast.show({
@@ -56,6 +56,24 @@
           theme: 'dark',
         })
       },
-    }
+    },
   }
 </script>
+
+<style scoped lang="scss">
+td {
+  &.id,
+  &.publish {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  td {
+    &.id,
+    &.publish {
+      display: table-cell !important;
+    }
+  }
+}
+</style>

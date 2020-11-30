@@ -3,13 +3,14 @@
     <table class="table table-bordered">
       <thead>
       <tr>
-        <th class="d-none d-md-inline">Id</th>
+        <th class="id">Id</th>
         <th>Title</th>
         <th class="sortable text-center cursor-pointer user-select-none" @click="sortBy('published_at')">
           <i class="fas d-inline-block mr-2"
-          :class="{ 'fa-angle-down': sortedBy['published_at'], 'fa-angle-up': !sortedBy['published_at'] }"></i> Publication date
+             :class="{ 'fa-angle-down': sortedBy['published_at'], 'fa-angle-up': !sortedBy['published_at'] }"></i>
+          Publication date
         </th>
-        <th class="d-none d-md-inline">Publish</th>
+        <th class="publish">Publish</th>
       </tr>
       </thead>
       <tbody>
@@ -74,14 +75,14 @@
         const { page, sortedBy } = this
         
         this.loading = true
-  
+        
         const response = await this.getPosts({
           page,
           sortedBy,
         })
-  
+        
         this.loading = false
-  
+        
         this.links = response.data.meta ? response.data.meta.links : response.data.links
       },
       async goToPage(url) {
@@ -100,13 +101,29 @@
 </script>
 
 <style scoped lang="scss">
-  table {
-    thead {
-      th {
-        &.sortable {
-          cursor: pointer;
-        }
+table {
+  thead {
+    th {
+      &.sortable {
+        cursor: pointer;
       }
     }
   }
+}
+
+th {
+  &.id,
+  &.publish {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  th {
+    &.id,
+    &.publish {
+      display: table-cell !important;
+    }
+  }
+}
 </style>
