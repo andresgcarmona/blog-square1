@@ -18,24 +18,12 @@
         </td>
       </tr>
       <tr v-for="post in posts" v-else
-          :key="post.id">
-        <td class="text-center">{{ post.id }}</td>
-        <td><a :href="`/post/${post.slug}`">{{ post.title }}</a></td>
-        <td class="text-center">{{ post.published_at }}</td>
-        <td class="text-center">
-          <label class="switcher-control switcher-control-lg">
-            <input type="checkbox"
-                   class="switcher-input"
-                   id="publish"
-                   name="publish"
-                   :checked="post.is_published">
-            <span class="switcher-indicator"></span>
-          </label>
-        </td>
-      </tr>
+          :key="post.id"
+          :post="post"
+          is="post-row"></tr>
       </tbody>
     </table>
-  
+    
     <div v-if="links.length" class="d-flex justify-content-center">
       <nav>
         <ul class="pagination">
@@ -56,9 +44,13 @@
 </template>
 <script>
   import { mapActions, mapGetters } from 'vuex'
+  import PostRow from './PostRow'
   
   export default {
     name: 'PostsTable',
+    components: {
+      PostRow,
+    },
     data: () => ({
       loading: false,
       page: 1,
@@ -79,7 +71,7 @@
         this.loading = false
         
         this.links = response.data.links
-      }
+      },
     },
     computed: {
       ...mapGetters(['posts']),

@@ -13,6 +13,16 @@ const fetchPosts = async ({ page }) => {
 	}
 }
 
+const togglePublishStatus = async (post) => {
+	try {
+		return await axios.post(`/post/${post.id}/toggle-publish-status`)
+	}
+	catch(e) {
+		throw e
+	}
+}
+
 export {
 	fetchPosts,
+	togglePublishStatus,
 }

@@ -1,4 +1,4 @@
-import { fetchPosts } from './api'
+import { fetchPosts, togglePublishStatus } from './api'
 
 const getPosts = async({ commit }, payload) => {
 	const { page } = payload
@@ -15,6 +15,16 @@ const getPosts = async({ commit }, payload) => {
 	}
 }
 
+const togglePublish = async(context, post) => {
+	try {
+		return await togglePublishStatus(post)
+	}
+	catch(e) {
+		console.error(e)
+	}
+}
+
 export default {
 	getPosts,
+	togglePublish,
 }
