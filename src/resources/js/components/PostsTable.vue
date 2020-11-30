@@ -3,13 +3,13 @@
     <table class="table table-bordered">
       <thead>
       <tr>
-        <th>Id</th>
+        <th class="d-none d-md-inline">Id</th>
         <th>Title</th>
         <th class="sortable text-center cursor-pointer user-select-none" @click="sortBy('published_at')">
           <i class="fas d-inline-block mr-2"
           :class="{ 'fa-angle-down': sortedBy['published_at'], 'fa-angle-up': !sortedBy['published_at'] }"></i> Publication date
         </th>
-        <th>Publish</th>
+        <th class="d-none d-md-inline">Publish</th>
       </tr>
       </thead>
       <tbody>

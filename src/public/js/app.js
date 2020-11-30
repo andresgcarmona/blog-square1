@@ -394,7 +394,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("tr", [
-    _c("td", { staticClass: "text-center" }, [_vm._v(_vm._s(_vm.post.id))]),
+    _c("td", { staticClass: "text-center d-none d-md-inline" }, [
+      _vm._v(_vm._s(_vm.post.id))
+    ]),
     _vm._v(" "),
     _c("td", [
       _c("a", { attrs: { href: "/post/" + _vm.post.slug } }, [
@@ -406,7 +408,7 @@ var render = function() {
       _vm._v(_vm._s(_vm.post.published_at))
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "text-center" }, [
+    _c("td", { staticClass: "text-center d-none d-md-inline" }, [
       _c("label", { staticClass: "switcher-control switcher-control-lg" }, [
         _c("input", {
           staticClass: "switcher-input",
@@ -455,7 +457,7 @@ var render = function() {
     _c("table", { staticClass: "table table-bordered" }, [
       _c("thead", [
         _c("tr", [
-          _c("th", [_vm._v("Id")]),
+          _c("th", { staticClass: "d-none d-md-inline" }, [_vm._v("Id")]),
           _vm._v(" "),
           _c("th", [_vm._v("Title")]),
           _vm._v(" "),
@@ -482,7 +484,7 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("th", [_vm._v("Publish")])
+          _c("th", { staticClass: "d-none d-md-inline" }, [_vm._v("Publish")])
         ])
       ]),
       _vm._v(" "),

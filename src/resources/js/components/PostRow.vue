@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td class="text-center">{{ post.id }}</td>
+    <td class="text-center d-none d-md-inline">{{ post.id }}</td>
     <td><a :href="`/post/${post.slug}`">{{ post.title }}</a></td>
     <td class="text-center">{{ post.published_at }}</td>
-    <td class="text-center">
+    <td class="text-center d-none d-md-inline">
       <label class="switcher-control switcher-control-lg">
         <input type="checkbox"
                class="switcher-input"

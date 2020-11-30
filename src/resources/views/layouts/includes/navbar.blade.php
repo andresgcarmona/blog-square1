@@ -8,13 +8,7 @@
         </div>
 
         <div class="top-bar-list">
-            <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
-                <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="toggle menu">
-                    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-                </button>
-            </div>
-
-            <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+            <div class="top-bar-item top-bar-item-right px-0 d-sm-flex">
                 <ul class="header-nav nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fas fa-search"></span></a>
@@ -22,7 +16,7 @@
                 </ul>
 
                 @auth
-                <div class="dropdown d-none d-md-flex">
+                <div class="dropdown d-md-flex">
                     <button class="btn-account" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                         <span class="user-avatar user-avatar-md">
